@@ -1,0 +1,21 @@
+.container-sketch{
+    border: 3px solid black;
+    border-radius: 8px;
+    width: 600px;
+    height: 600px;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.rows {
+    display: flex;
+    flex-flow: row nowrap;
+    flex: 1 1 auto;
+}
+
+.row-Elements{
+    border: 1px solid rgb(107, 20, 20);
+    background-color: aqua;
+    flex: 1 1 auto;
+    margin: px;
+}
