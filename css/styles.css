@@ -17,21 +17,20 @@ h1{
     gap: 15px;
 }
 
-.wraper-all{
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-}
-
 .settings{
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
     align-items: center;
-    padding: 5px;
+    padding: 10px 15px;
     gap: 15px;
+    border: 2px solid black;
+    border-radius: 4px;
+}
+
+button{
+    width: 75px;
+    padding: 3px;
     border: 2px solid black;
     border-radius: 4px;
 }
@@ -42,13 +41,14 @@ h1{
 
 .container-sketch{
     border: 4px solid black;
-    border-radius: 8px;
+    border-radius: 7px;
     width: 30vw;
     height: 30vw;
     display: flex;
     flex-flow: column nowrap;
 }
 
+/* JavaScript */
 .rows {
     display: flex;
     flex-flow: row nowrap;
@@ -61,21 +61,15 @@ h1{
     margin: 0px;
 }
 
-
-/* JavaScript */
-.roundCorners{
-    border-radius: 8px;
-}
-
 .grid{
     border: 1px solid rgb(36, 36, 36);
 }
 
 
-@media (max-width: 1000px){
+@media (max-width: 900px){
     .container-sketch{
-        width: 50vw;
-        height: 50vw;
+        width: 80vw;
+        height: 80vw;
     }
 }
 
@@ -83,25 +77,18 @@ h1{
     h1{
         font-size: 32px;
     }
-
-    .wraper-all{
-        display: flex;
-        flex-flow: row nowrap;
-        justify-content: center;
-        align-items: center;
-        gap: 15px;
-    }
     
     .settings{
-        display: flex;
-        flex-flow: column nowrap;
+        max-width: 80vw;
         justify-content: center;
         align-items: center;
-        padding: 5px;
+        padding: 10px 5px;
         gap: 15px;
         border: 2px solid black;
         border-radius: 4px;
     }
 
-    
+    button{
+        min-width: 15vw;
+    }
 }

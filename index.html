@@ -13,23 +13,21 @@
             <h1>Etch-a-Sketch</h1>
         </head>
         <main class="main">
-            <div class="wraper-all">
-                <div class="settings">
-                    <input id="colorPicker" type="color" value="#333333" />
-                    <button id="btn-color" class="settings">Color mode</button>
-                    <button id="btn-rainbow" class="settings">Rainbow mode</button>
-                    <button id="btn-erase" class="settings">Eraser</button>
-                    <button id="btn-clear" class="settings">Clear</button>
-                    <!-- <button id="btn-grid" class="settings">Grid</button> -->
+            <div class="settings">
+                <input id="colorPicker" type="color" value="#333333" />
+                <button id="btn-color" class="btn-settings">Color</button>
+                <button id="btn-rainbow" class="btn-settings">Rainbow</button>
+                <button id="btn-erase" class="btn-settings">Eraser</button>
+                <button id="btn-clear" class="btn-settings">Clear</button>
+                <button id="btn-grid" class="btn-settings">Grid</button>
+            </div>        
+            <div class="wraper-panelSlider">
+                <div id="sketch-box" class="container-sketch"></div>
+                <div class="size-settings">
+                    <div id="sizeValue" class="size-value">24 x 24</div>
+                    <input id="sizeSlider" type="range" value="24" min="10" max="64"/>
                 </div>
-                <div class="wraper-panelSlider">
-                    <div id="sketch-box" class="container-sketch"></div>
-                    <div class="size-settings">
-                        <div id="sizeValue" class="size-value">24 x 24</div>
-                        <input id="sizeSlider" type="range" value="24" min="10" max="64">
-                    </div>
-                </div>
-            </div>
+            </div>            
         </main>
     </body>
 </html>

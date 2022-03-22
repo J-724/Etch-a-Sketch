@@ -5,7 +5,7 @@ const DEFAULT_SIZE = 24;
 let color = DEFAULT_COLOR;
 let mode = DEFAULT_MODE;
 let size = DEFAULT_SIZE;
-let showgrid = true;
+let toggleGrid = true;
 
 const grid = document.getElementById('sketch-box');
 const colorPicker = document.getElementById('colorPicker');
@@ -13,7 +13,7 @@ const btnColor = document.getElementById('btn-color');
 const btnRainbow = document.getElementById('btn-rainbow');
 const btnErase = document.getElementById('btn-erase');
 const btnClear = document.getElementById('btn-clear');
-// const btnGrid = document.getElementById('btn-grid');
+const btnGrid = document.getElementById('btn-grid');
 const sizeValue = document.getElementById('sizeValue');
 const sizeSlider = document.getElementById('sizeSlider');
 
@@ -22,7 +22,7 @@ btnColor.onclick = () => setMode('color');
 btnRainbow.onclick = () => setMode('rainbow');
 btnErase.onclick = () => setMode('eraser');
 btnClear.onclick = () => resetGrid();
-// btnGrid.onclick = () => setMode('toggleGrid');
+btnGrid.onclick = () => showGrid();
 sizeSlider.onmousemove = (e) => updateSizeValue(e.target.value);
 sizeSlider.onclick = (e) => changeSize(e.target.value); 
 
@@ -54,31 +54,12 @@ function createRowElements(gridRow,filler,row){
     rowElements.setAttribute('data-rowElement',elements);
     rowElements.addEventListener('mousedown', draw);
     rowElements.addEventListener('mouseover', draw);
-    
-    if(showgrid){
-        rowElements.classList.add('grid');
-    } else{
+    rowElements.classList.add('grid');
+    if(!toggleGrid){
         rowElements.classList.remove('grid');
     }
     
-    
-    // if (elements=1){
-    //     let topLCorner = document.querySelector('div[data-rowElement=1]');
-    //     topLCorner.classList.add('roundCorners');
-    //     console.log(topLCorner);
-    // }else if (elements==size){
-
-    // }else if (elements==((size*size)-(size+1))){
-
-    // }else if (elements==(size*size)){
-
-    // }
-
     gridRow.appendChild(rowElements); 
-    
-    if ((row=size)&&(i=size)){
-        makeRoundCorners(size);
-    } 
 }
 
 function resetGrid() {
@@ -101,9 +82,9 @@ function draw(e){
     if (e.type === 'mouseover' && !mouseDown) return;
     console.log(e.target);
     if (mode === 'rainbow') {
-        const randomR = Math.floor(Math.random() * (245 - 35) + 35); //To not have to dark or to light colors
-        const randomG = Math.floor(Math.random() * (245 - 35) + 35);
-        const randomB = Math.floor(Math.random() * (245 - 35) + 35);
+        const randomR = Math.floor(Math.random() * (245 - 45) + 45); //To not have to dark or to light colors
+        const randomG = Math.floor(Math.random() * (245 - 45) + 45);
+        const randomB = Math.floor(Math.random() * (245 - 45) + 45);
         e.target.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`;
       } else if (mode === 'color') {
         e.target.style.backgroundColor = color;
@@ -139,42 +120,37 @@ function updateSizeValue(value) {
 
 function toggleButtons(newMode) {
     if (mode === 'rainbow') {
-        btnRainbow.classList.remove('active')
+        btnRainbow.classList.remove('active');
     } else if (mode === 'color') {
-        btnColor.classList.remove('active')
+        btnColor.classList.remove('active');
     } else if (mode === 'eraser') {
-        btnErase.classList.remove('active')
+        btnErase.classList.remove('active');
     } 
-    
-    // else if (mode === 'toggleGrid') {
-    //    showgrid=false;
-    //    resetGrid();
-    // }    
-    
-
 
     if (newMode === 'rainbow') {
-      btnRainbow.classList.add('active')
+      btnRainbow.classList.add('active');
     } else if (newMode === 'color') {
-      btnColor.classList.add('active')
+      btnColor.classList.add('active');
     } else if (newMode === 'eraser') {
-      btnErase.classList.add('active')
-    } 
-    
-    // else if (newMode === 'toggleGrid') {
-    //     showgrid=true;
-    //     resetGrid();
-    // }   
+      btnErase.classList.add('active');
+    }
+}     
+
+function showGrid () {
+    if (toggleGrid){
+        toggleGrid = false;
+    } else {
+        toggleGrid = true;
+    }
+    resetGrid (); 
 }
 
 function makeRoundCorners(size){
-    
-
-    let topRCorner = size;
-    let bottomRCorner = size*size;
-    let bottomLCorner = (size*size)-(size-1);
-
-
+    // Corners postion value 
+        // topLCorner = 1;
+        // topRCorner = size;
+        // bottomRCorner = size*size;
+        // bottomLCorner = (size*size)-(size-1);
 }
 
 window.onload = () => {
